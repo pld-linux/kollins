@@ -1,7 +1,3 @@
-# 
-# Conditional build:
-%bcond_with ra			# use /usr/X11R6 prefix for PLD 1.x
-#
 Summary:	Kollins - KDE Frontend to YDP Collins' dictionary
 Summary(pl):	Kollins - frontend do s³ownika YDP Collinsa dla ¶rodowiska KDE
 Name:		kollins
@@ -19,8 +15,6 @@ BuildRequires:	kdelibs-devel >= 3.1.0
 BuildRequires:	libart_lgpl-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%{?with_ra:%define	_prefix	/usr/X11R6}
 
 %description
 Kollins is KDE Frontend to YDP Collins' dictionary. It supports
