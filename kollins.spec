@@ -10,7 +10,7 @@ Release:	1
 Epoch:		0
 License:	GPL
 Group:		Applications/Text
-Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/kollins/%{name}-%{version}.tar.bz2
 # Source0-md5:	009d3b3a1a99b5b29670011c5d69bd55
 Patch0:		%{name}-desktopdir_location.patch
 URL:		http://sourceforge.net/projects/kollins/
