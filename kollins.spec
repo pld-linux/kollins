@@ -4,7 +4,7 @@
 #
 
 Summary:	Kollins - KDE Frontend to YDP Collins' dictionary
-Summary(pl):	kollins - frontend s³ownka YDP Collins dla srowiska KDE
+Summary(pl):	Kollins - frontend s³ownka YDP Collins dla srowiska KDE
 Name:		kollins
 Version:	0.2
 Release:	1
