@@ -13,6 +13,7 @@ License:	GPL
 Group:		Applications/Text
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 # Source0-md5:	009d3b3a1a99b5b29670011c5d69bd55
+Patch0:		%{name}-desktopdir_location.patch
 URL:		http://sourceforge.net/projects/kollins/
 BuildRequires:	kdelibs-devel >= 3.1.0
 BuildRequires:	libart_lgpl-devel
@@ -33,6 +34,7 @@ polsko-niemieckiego.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure
@@ -44,6 +46,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%if 0%{!?_with_ra:1}
+install -d $RPM_BUILD_ROOT%{_applnkdir}/Scientific
+mv $RPM_BUILD_ROOT%{_datadir}/applnk/Scientific/* \
+	$RPM_BUILD_ROOT%{_applnkdir}/Scientific/
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -57,5 +65,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/32x32/actions/*
 %{_datadir}/icons/hicolor/16x16/*
 %{_datadir}/apps/kollins
-%{_applnkdir}/Utilities/*
+%{_applnkdir}/Scientific/*
 %{_datadir}/icons/hicolor/32x32/apps/*
