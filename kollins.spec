@@ -15,13 +15,13 @@ Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 # Source0-md5:	009d3b3a1a99b5b29670011c5d69bd55
 Patch0:		%{name}-desktopdir_location.patch
 URL:		http://sourceforge.net/projects/kollins/
+BuildRequires:	fam-devel
 BuildRequires:	kdelibs-devel >= 3.1.0
 BuildRequires:	libart_lgpl-devel
-BuildRequires:	fam-devel
-
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %{?_with_ra:%define	_prefix	/usr/X11R6}
+%define		_htmldir	%{_docdir}/kde/HTML
 
 %description
 Kollins is KDE Frontend to YDP Collins' dictionary. It supports
@@ -37,6 +37,9 @@ polsko-niemieckiego.
 %patch0 -p1
 
 %build
+kde_appsdir="%{_applnkdir}"; export kde_appsdir
+kde_htmldir="%{_htmldir}"; export kde_htmldir
+kde_icondir="%{_pixmapsdir}"; export kde_icondir
 %configure
 
 %{__make}
@@ -47,23 +50,15 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%if 0%{!?_with_ra:1}
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Scientific
-mv $RPM_BUILD_ROOT%{_datadir}/applnk/Scientific/* \
-	$RPM_BUILD_ROOT%{_applnkdir}/Scientific/
-%endif
+%find_lang %{name} --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog TODO
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/doc/HTML/en/kollins
-%{_datadir}/locale/pl/LC_MESSAGES/kollins.mo
-%{_datadir}/icons/hicolor/32x32/actions/*
-%{_datadir}/icons/hicolor/16x16/*
 %{_datadir}/apps/kollins
 %{_applnkdir}/Scientific/*
-%{_datadir}/icons/hicolor/32x32/apps/*
+%{_pixmapsdir}/*/*/*/*.png
