@@ -18,10 +18,10 @@ URL:		http://sourceforge.net/projects/kollins/
 BuildRequires:	fam-devel
 BuildRequires:	kdelibs-devel >= 3.1.0
 BuildRequires:	libart_lgpl-devel
+BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %{?_with_ra:%define	_prefix	/usr/X11R6}
-%define		_htmldir	%{_docdir}/kde/HTML
 
 %description
 Kollins is KDE Frontend to YDP Collins' dictionary. It supports
@@ -37,9 +37,7 @@ polsko-niemieckiego.
 %patch0 -p1
 
 %build
-kde_appsdir="%{_applnkdir}"; export kde_appsdir
-kde_htmldir="%{_htmldir}"; export kde_htmldir
-kde_icondir="%{_pixmapsdir}"; export kde_icondir
+kde_htmldir="%{_kdedocdir}"; export kde_htmldir
 %configure
 
 %{__make}
@@ -49,6 +47,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+mv -f $RPM_BUILD_ROOT%{_datadir}/applnk/Scientific $RPM_BUILD_ROOT%{_desktopdir}
 
 %find_lang %{name} --with-kde
 
@@ -60,5 +60,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog TODO
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/apps/kollins
-%{_applnkdir}/Scientific/*
-%{_pixmapsdir}/*/*/*/*.png
+%{_desktopdir}/*.desktop
+%{_iconsdir}/*/*/*/*.png
