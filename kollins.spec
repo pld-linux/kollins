@@ -41,7 +41,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-mv -f $RPM_BUILD_ROOT%{_datadir}/applnk/Scientific $RPM_BUILD_ROOT%{_desktopdir}
+mv -f $RPM_BUILD_ROOT%{_datadir}/applnk/Scientific \
+	$RPM_BUILD_ROOT%{_desktopdir}/kde
 
 %find_lang %{name} --with-kde
 
@@ -53,5 +54,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog TODO
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/apps/kollins
-%{_desktopdir}/*.desktop
+%{_desktopdir}/kde/*.desktop
 %{_iconsdir}/*/*/*/*.png
