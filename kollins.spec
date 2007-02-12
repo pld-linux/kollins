@@ -1,5 +1,5 @@
 Summary:	Kollins - KDE Frontend to YDP Collins' dictionary
-Summary(pl):	Kollins - frontend do s≥ownika YDP Collinsa dla ∂rodowiska KDE
+Summary(pl.UTF-8):   Kollins - frontend do s≈Çownika YDP Collinsa dla ≈õrodowiska KDE
 Name:		kollins
 Version:	0.2
 Release:	1
@@ -20,9 +20,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Kollins is KDE Frontend to YDP Collins' dictionary. It supports
 English/Polish dictionary as well as German/Polish dictionary.
 
-%description -l pl
-Kollins jest frontendem do s≥ownika YDP Collinsa dla ∂rodowiska KDE.
-Moøe korzystaÊ zarÛwno ze s≥ownika polsko-angielskiego jak i
+%description -l pl.UTF-8
+Kollins jest frontendem do s≈Çownika YDP Collinsa dla ≈õrodowiska KDE.
+Mo≈ºe korzystaƒá zar√≥wno ze s≈Çownika polsko-angielskiego jak i
 polsko-niemieckiego.
 
 %prep
