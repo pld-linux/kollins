@@ -1,5 +1,5 @@
 Summary:	Kollins - KDE Frontend to YDP Collins' dictionary
-Summary(pl.UTF-8):   Kollins - frontend do słownika YDP Collinsa dla środowiska KDE
+Summary(pl.UTF-8):	Kollins - frontend do słownika YDP Collinsa dla środowiska KDE
 Name:		kollins
 Version:	0.2
 Release:	1
